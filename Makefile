@@ -1,0 +1,19 @@
+CC=gcc
+CFLAGS = -c 
+
+all: prog
+
+prog: main.o isEven.o isOdd.o
+	$(CC) $? -o $@
+
+main.o: main.c
+	$(CC) $(CFLAGS) main.c
+
+isEven.o: isEven.c
+	$(CC) $(CFLAGS) isEven.c
+
+isOdd.o: isOdd.c
+	$(CC) $(CFLAGS) isOdd.c
+
+clean:
+	rm -rf *.o prog
